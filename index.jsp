@@ -12,7 +12,7 @@
         <form action="displayText.jsp" method="post">
             <label for="inputText">Text:</label>
             <input type="text" id="inputText" name="inputText">
-            <button type="submit">SEND</button>
+            <button type="submit">Send</button>
         </form>
         <div class="link-container">
             <a href="https://github.com/ShayShuve123/DevOps_WebApp" target="_blank">GitHub Repository: DevOps_WebApp</a>
