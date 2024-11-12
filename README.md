@@ -92,18 +92,18 @@ The pipeline is structured to poll the GitHub repository every minute, detect ch
 ## Screenshots
 
 ### Web Application
-![Web Application](path/to/your/screenshot.png)
+![c](https://github.com/user-attachments/assets/eb508759-15eb-4151-8a3c-ee53ee7f1ce2)
 
 ### Jenkins Dashboard
 ![jenkins_dashboard](https://github.com/user-attachments/assets/a4a39c2b-1d92-47d6-8a1c-0c1c4c601379)
 
 ### Gatling Load Test Results
-![Gatling Load Test](path/to/gatling_load_test_screenshot.png)
+[load.pdf](https://github.com/user-attachments/files/17717648/load.pdf)
 
 ### Gatling Stress Test Results
-![Gatling Stress Test](path/to/gatling_stress_test_screenshot.png)
+[stress.pdf](https://github.com/user-attachments/files/17717644/stress.pdf)
 
 ### Uptime Monitoring
-![Uptime Monitoring](path/to/uptime_monitor_screenshot.png)
+![monitor](https://github.com/user-attachments/assets/ff90dfab-884b-4ff0-bef7-ce250252228b)
 
 ---
