@@ -10,7 +10,7 @@
     <h1>Hello, this is our project as DevOps Engineers.</h1>
     <div class="form-container">
         <form action="displayText.jsp" method="post">
-            <label for="inputText">Text:</label>
+            <label for="inputText">text:</label>
             <input type="text" id="inputText" name="inputText">
             <button type="submit">Send</button>
         </form>
