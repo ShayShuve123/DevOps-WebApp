@@ -67,12 +67,14 @@ The pipeline is structured to poll the GitHub repository every minute, detect ch
      ```
    - **Trigger**: Triggers `gatling-load` job if tests pass successfully.
 
-4. **gatling-load**     
+4. **gatling-load**
+     
 The load test graph illustrates a gradual increase in the number of concurrent users on the server, reaching up to 90% of its maximum capacity. From there, we maintain the number of concurrent users at this percentage (90%) for 4 minutes to assess how the system functions under load. Near the end, we gradually reduce the number of simultaneous users to 0 and finish the test.
 
 Note: This test is based on the assumption that the limit is 100 concurrent users; therefore, we ramp it up to 90 concurrent users.
 
 5. **gatling-stress**
+
 The load test graph illustrates a gradual increase in the number of concurrent users on the server, reaching up to 90% of its maximum capacity. From there, we maintain this load for 4 minutes during which, three times, we briefly increase the number of simultaneous users to 110 percent of the server's maximum capacity before returning to 90 percent. This process aims to assess the system's functionality after subjecting it to an unexpected load. Near the end, we gradually reduce the number of simultaneous users to 0 and finish the test.  
 
 ---
@@ -80,11 +82,12 @@ The load test graph illustrates a gradual increase in the number of concurrent u
 ## Demonstration
 
 1. **Video 1**: 
-   jobs within the pipeline.
+   All jobs within the pipeline.
    
 
 2. **Video 2**:  
-   Demonstrates updating the code locally (changing "Text" to "text"), committing to GitHub, and triggering the CI/CD pipeline. Shows the automatic deployment of the updated text on the web application, as well as the uptime monitoring, automated testing, and load/stress test results.
+   Demonstrates updating the code locally (changing "Text" to "text"), committing to GitHub, and triggering the CI/CD pipeline.
+    Shows the automatic deployment of the updated text on the web application, as well as the uptime monitoring, automated testing, and load/stress test results.
 
 ---
 
