@@ -86,7 +86,7 @@ The load test graph illustrates a gradual increase in the number of concurrent u
    All jobs within the pipeline.
    
 
-3. **Video 2**:
+3. **Video 2**:[Code Update and Deployment](https://drive.google.com/file/d/180H4lY4-r5Ygik-1_W3mEJx26xXSR52K/view?usp=drive_link)
 4.  
    Demonstrates updating the code locally (changing "Text" to "text"), committing to GitHub, and triggering the CI/CD pipeline.
     Shows the automatic deployment of the updated text on the web application, as well as the uptime monitoring, automated testing, and load/stress test results.
