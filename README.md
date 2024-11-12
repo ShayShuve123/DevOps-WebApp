@@ -72,6 +72,26 @@ The load test graph illustrates a gradual increase in the number of concurrent u
 
 Note: This test is based on the assumption that the limit is 100 concurrent users; therefore, we ramp it up to 90 concurrent users.
 
+3. **selenium-test**
+   - **Purpose**: Runs automated functional tests on the web application using Selenium IDE. Checks if specific elements and functionalities work as expected.
+   - **Configuration**:
+     - **Build Steps**: Executes a Selenium `.side` file to simulate user actions.
+   - **Shell Command**:
+     ```bash
+     export NVM_DIR="/home/deftera/.nvm"
+     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+     tempfile=$(mktemp) && \
+     /home/deftera/.nvm/versions/node/v22.9.0/bin/selenium-side-runner --server http://localhost:4444 -c "browserName=firefox" /home/deftera/devops.side > "$tempfile" && \
+     if grep -q "Finished test Test1 Success" "$tempfile"; then
+       echo "Test finished successfully.";
+     else
+       exit 1;
+     fi && \
+     rm "$tempfile"
+     ```
+   - **Trigger**: Triggers `gatling-load` job if tests pass successfully.
+
+
 5. **gatling-stress**
 The load test graph illustrates a gradual increase in the number of concurrent users on the server, reaching up to 90% of its maximum capacity. From there, we maintain this load for 4 minutes during which, three times, we briefly increase the number of simultaneous users to 110 percent of the server's maximum capacity before returning to 90 percent. This process aims to assess the system's functionality after subjecting it to an unexpected load. Near the end, we gradually reduce the number of simultaneous users to 0 and finish the test.  
 
