@@ -95,7 +95,7 @@ The pipeline is structured to poll the GitHub repository every minute, detect ch
 ![Web Application](path/to/your/screenshot.png)
 
 ### Jenkins Dashboard
-![Jenkins Dashboard](C:\Users\97254\Desktop\Degree\Third year\דאבופס\פרוייקט\images for Readme)
+![jenkins_dashboard](https://github.com/user-attachments/assets/a4a39c2b-1d92-47d6-8a1c-0c1c4c601379)
 
 ### Gatling Load Test Results
 ![Gatling Load Test](path/to/gatling_load_test_screenshot.png)
