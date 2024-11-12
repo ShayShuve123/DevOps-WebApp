@@ -68,6 +68,28 @@ The pipeline is structured to poll the GitHub repository every minute, detect ch
    - **Trigger**: Triggers `gatling-load` job if tests pass successfully.
 
 4. **gatling-load**
+- **Purpose**: Conducts a load test to simulate up to 90% of the system's maximum capacity.
+ - **Configuration**:
+     - **Build Steps**: Runs Gatling to gradually increase the number of concurrent users to 90%, maintains the load for four minutes, and then reduces the users to zero.
+ - **Shell Command**:
+  - **Shell Command**:
+     ```bash
+     # Run the Gatling test
+/home/deftera/gatling/gatling-charts-highcharts-bundle-3.9.5/bin/gatling.sh -rm local -sf /home/deftera/gatling/gatling-charts-highcharts-bundle-3.9.5/user-files/simulations -s EdwardLiavShayMichalEliranLoad
+
+# Wait for the test to complete and then clean up the previous results
+RESULTS_DIR="/home/deftera/gatling/gatling-charts-highcharts-bundle-3.9.5/results"
+TARGET_DIR="/var/lib/tomcat8/webapps/gatling_load"
+
+# Delete previous test results
+rm -rf $TARGET_DIR/*
+
+# Find the latest results folder and copy its contents
+LATEST_RESULT=$(ls -dt $RESULTS_DIR/* | head -n 1)
+if [ -d "$LATEST_RESULT" ]; then
+    cp -r $LATEST_RESULT/* $TARGET_DIR/
+fi
+```      
 The load test graph illustrates a gradual increase in the number of concurrent users on the server, reaching up to 90% of its maximum capacity. From there, we maintain the number of concurrent users at this percentage (90%) for 4 minutes to assess how the system functions under load. Near the end, we gradually reduce the number of simultaneous users to 0 and finish the test.
 
 Note: This test is based on the assumption that the limit is 100 concurrent users; therefore, we ramp it up to 90 concurrent users.
@@ -79,10 +101,9 @@ The load test graph illustrates a gradual increase in the number of concurrent u
 
 ## Demonstration
 
-1. **Video 1**:  ![image](https://github.com/user-attachments/assets/65664a89-5181-49bc-8114-8376572063f0)
-
-
-   Demonstrates the sequential execution of Jenkins jobs within the pipeline, showing each job being triggered automatically after the previous one completes.
+1. **Video 1**: 
+   jobs within the pipeline.
+   
 
 2. **Video 2**: [Code Update and Deployment](#)  
    Demonstrates updating the code locally (changing "Text" to "text"), committing to GitHub, and triggering the CI/CD pipeline. Shows the automatic deployment of the updated text on the web application, as well as the uptime monitoring, automated testing, and load/stress test results.
