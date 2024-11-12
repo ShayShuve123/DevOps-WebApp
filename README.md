@@ -72,30 +72,6 @@ The load test graph illustrates a gradual increase in the number of concurrent u
 
 Note: This test is based on the assumption that the limit is 100 concurrent users; therefore, we ramp it up to 90 concurrent users.
 
-4. **gatling-load**
-   - **Purpose**:
-   - **Configuration**:
-     - **Build Steps**: 
-   - **Shell Command**:
-     ```bash
-     Run the Gatling test
-/home/deftera/gatling/gatling-charts-highcharts-bundle-3.9.5/bin/gatling.sh -rm local -sf /home/deftera/gatling/gatling-charts-highcharts-bundle-3.9.5/user-files/simulations -s EdwardLiavShayMichalEliranLoad
-
-Wait for the test to complete and then clean up the previous results
-RESULTS_DIR="/home/deftera/gatling/gatling-charts-highcharts-bundle-3.9.5/results"
-TARGET_DIR="/var/lib/tomcat8/webapps/gatling_load"
-
-Delete previous test results
-rm -rf $TARGET_DIR/*
-
-Find the latest results folder and copy its contents
-LATEST_RESULT=$(ls -dt $RESULTS_DIR/* | head -n 1)
-if [ -d "$LATEST_RESULT" ]; then
-    cp -r $LATEST_RESULT/* $TARGET_DIR/
-fi
-     ```
-
-
 5. **gatling-stress**
 The load test graph illustrates a gradual increase in the number of concurrent users on the server, reaching up to 90% of its maximum capacity. From there, we maintain this load for 4 minutes during which, three times, we briefly increase the number of simultaneous users to 110 percent of the server's maximum capacity before returning to 90 percent. This process aims to assess the system's functionality after subjecting it to an unexpected load. Near the end, we gradually reduce the number of simultaneous users to 0 and finish the test.  
 
@@ -107,7 +83,7 @@ The load test graph illustrates a gradual increase in the number of concurrent u
    jobs within the pipeline.
    
 
-2. **Video 2**: [Code Update and Deployment](#)  
+2. **Video 2**:  
    Demonstrates updating the code locally (changing "Text" to "text"), committing to GitHub, and triggering the CI/CD pipeline. Shows the automatic deployment of the updated text on the web application, as well as the uptime monitoring, automated testing, and load/stress test results.
 
 ---
